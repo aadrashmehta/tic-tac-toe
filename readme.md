@@ -51,7 +51,3 @@ npm run build
 ## Customization
 
 You can update styles in [`src/index.css`](src/index.css) and add new features in [`src/App.jsx`](src/App.jsx).
-
-## License
-
-This project is licensed under the
