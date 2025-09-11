@@ -23,21 +23,37 @@ body {
       rgba(241, 210, 70, 0.98),
       rgba(250, 176, 103, 0.87)
     ),
-    url('bg-pattern-dark.png');
+    url('./assets/bg-pattern-dark.png');
   background-repeat: repeat;
   background-size: 100% 100%, 30% 30%, 100% 100%;
-  min-height: 110rem;
+  min-height: 100dvh;
+  margin: 0;
+}
+
+#game-wrapper {
+  display: grid;
+  grid-template-columns: auto 0.15fr;
+  justify-content: center;
+  align-items: start;
+  gap: 1rem;
+  margin: 3rem auto 2rem;
 }
 
 header {
-  text-align: center;
+  display: grid;
+  grid-template-areas:'logo title';
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0 0;
 }
 
 header img {
-  width: 8rem;
+  width: 100%;
   object-fit: contain;
-  margin: 3rem auto 1rem auto;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  grid-area: logo;
+  max-width: 4rem;
+  margin: 0 auto;
 }
 
 h1 {
@@ -47,9 +63,14 @@ h1 {
   color: #3f3b00;
 }
 
+header h1 {
+  grid-area: title;
+  margin: 0 auto;
+}
+
 #game-container {
   max-width: 45rem;
-  margin: 3rem auto;
+  margin: 0rem auto;
   padding: 2rem;
   border-radius: 6px;
   background: linear-gradient(#383624, #282617);
@@ -64,7 +85,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 #players li {
@@ -283,6 +304,82 @@ ol {
   color: #23221f;
   font: inherit;
   margin-top: 1.5rem;
+}
+
+
+
+
+#players .player {
+  display: flex;
+  align-items: center;
+}
+
+.player-symbol {
+  margin-left: 0.5rem;
+}
+
+#players button {
+  padding: 0;
+}
+#log {
+  margin: 0;
+  background: #0a0a0a80;
+  width: 100%;
+  min-height: 100%;
+  color: #fff;
+}
+
+@media screen and (max-width: 991px) {
+  #game-wrapper {
+    grid-template-columns: auto 0.8fr;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #game-wrapper {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #log {
+    min-height: 420px;
+    max-width: 579px;
+    margin: 0 auto;
+  }
+  #game-container {
+    max-width: 100%;
+  }
+  #players {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: start;
+  }
+  #players li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #players.highlight-player li.active {
+    width: 100%;
+  }
+  #game-board button {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+  }
+  #game-over h2 {
+    font-size: 3rem;
+  }
+  #game-wrapper {
+    padding: 0 1rem;
+  }
+  #game-board {
+    margin: 0;
+  }
+  body {
+    background-size: 100% 100%, 80% 20%, 100% 100%;
+  }
 }
 
 @keyframes slide-in-from-left {

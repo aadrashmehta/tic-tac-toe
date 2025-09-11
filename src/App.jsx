@@ -97,26 +97,28 @@ function App() {
 
   return (
     <main>
-      <div id="game-container">
-        <ol id="players" className="highlight-player">
-          <Player initalName={PLAYERS.X} symbol="X" isActive={activePlayer === 'X'} onChangeName={handlePlayerNameChange}/>
-          <Player initalName={PLAYERS.O} symbol="O" isActive={activePlayer === 'O'} onChangeName={handlePlayerNameChange}/>
+      <div id="game-wrapper">
+        <div id="game-container">
+          <ol id="players" className="highlight-player">
+            <Player initalName={PLAYERS.X} symbol="X" isActive={activePlayer === 'X'} onChangeName={handlePlayerNameChange}/>
+            <Player initalName={PLAYERS.O} symbol="O" isActive={activePlayer === 'O'} onChangeName={handlePlayerNameChange}/>
 
-          {/* if not using logs          
-          <Player initalName="Player 1" symbol="X" isActive={activePlayer === 'X'}/>
-          <Player initalName="Player 2" symbol="O" isActive={activePlayer === 'O'}/> */}
-        </ol>
+            {/* if not using logs          
+            <Player initalName="Player 1" symbol="X" isActive={activePlayer === 'X'}/>
+            <Player initalName="Player 2" symbol="O" isActive={activePlayer === 'O'}/> */}
+          </ol>
 
-        {(winner || hasDraw) && <GameOver winner={winner} onRestart={handleRestart}/>}
-        <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
-        
-        {/* 
-          If not showing logs
-        <GameBoard onSelectSquare={handleSelectSquare} activePlayerSymbol={activePlayer}/> 
-        */}
-        
+          {(winner || hasDraw) && <GameOver winner={winner} onRestart={handleRestart}/>}
+          <GameBoard onSelectSquare={handleSelectSquare} board={gameBoard} />
+          
+          {/* 
+            If not showing logs
+          <GameBoard onSelectSquare={handleSelectSquare} activePlayerSymbol={activePlayer}/> 
+          */}
+          
+        </div>
+        <Log turns={gameTurns}/>
       </div>
-      <Log turns={gameTurns}/>
     </main>
   )
 }
