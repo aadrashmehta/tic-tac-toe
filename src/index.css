@@ -20,8 +20,8 @@ html {
 body {
   background: radial-gradient(
       circle at top,
-      rgba(241, 210, 70, 0.98),
-      rgba(250, 176, 103, 0.87)
+      rgb(70 241 190 / 98%),
+      rgb(103 173 250 / 87%)
     ),
     url('./assets/bg-pattern-dark.png');
   background-repeat: repeat;
@@ -32,7 +32,7 @@ body {
 
 #game-wrapper {
   display: grid;
-  grid-template-columns: auto 0.15fr;
+  grid-template-columns: auto 0.2fr;
   justify-content: center;
   align-items: start;
   gap: 1rem;
@@ -50,7 +50,7 @@ header {
 header img {
   width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0 8px #000c37cf);
   grid-area: logo;
   max-width: 4rem;
   margin: 0 auto;
@@ -66,6 +66,7 @@ h1 {
 header h1 {
   grid-area: title;
   margin: 0 auto;
+  color: #1338bd;
 }
 
 #game-container {
@@ -73,7 +74,7 @@ header h1 {
   margin: 0rem auto;
   padding: 2rem;
   border-radius: 6px;
-  background: linear-gradient(#383624, #282617);
+  background: linear-gradient(#102cab, #1a57eb);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }
@@ -81,7 +82,7 @@ header h1 {
 #players {
   list-style: none;
   padding: 0;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,14 +103,14 @@ header h1 {
 
 #players.highlight-player li.active .player-name,
 #players.highlight-player li.active .player-symbol {
-  color: #f6e35a;
+  color: #a1c7ff;
 }
 
 #players button {
   width: 3rem;
   border: none;
   background: none;
-  color: #c3ba78;
+  color: #80b1f8;
   font-size: 0.9rem;
   cursor: pointer;
   transition: color 0.2s;
@@ -118,7 +119,7 @@ header h1 {
 }
 
 #players button:hover {
-  color: #f8ca31;
+  color: #a1c7ff;
 }
 
 .player {
@@ -130,9 +131,9 @@ header h1 {
 
 .player-name {
   display: inline-block;
-  width: 10rem;
+  width: 8rem;
   font-size: 1rem;
-  color: #e1dec7;
+  color: #cbf1ff;
   text-transform: uppercase;
   margin: 0;
   padding: 0.5rem;
@@ -144,11 +145,11 @@ header h1 {
 .player input {
   font: inherit;
   font-size: 1rem;
-  width: 10rem;
+  width: 8rem;
   border: none;
   padding: 0.5rem;
   animation: pulse-text 2s infinite;
-  background-color: #46432f;
+  background-color: #50a3ffb0;
   text-align: center;
   text-transform: uppercase;
 }
@@ -200,15 +201,16 @@ ol {
 }
 
 #game-board button {
-  width: 8rem;
-  height: 8rem;
+  width: 5rem;
+  height: 5rem;
   border: none;
-  background: #aca788;
-  color: #3f3b00;
-  font-size: 5rem;
+  background: #50a3ffb0;
+  color: #01346ce6;
+  font-size: 4rem;
   cursor: pointer;
   font-family: 'Caprasimo', cursive;
-  padding: 1rem;
+  padding: .5rem;
+  box-shadow: 0px 0px 3px 1px #3e9affd6;
 }
 
 #game-over {
@@ -221,7 +223,7 @@ ol {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(40, 38, 23, 0.95);
+  background-color: #1338bdcf;
   animation: pop-in 0.25s cubic-bezier(0.68, -0.55, 0.65, 0.52) forwards;
 }
 
@@ -229,7 +231,7 @@ ol {
   font-family: 'Caprasimo', cursive;
   font-size: 4rem;
   text-align: center;
-  color: #fcd256;
+  color: #67cee3;
   margin: 0;
 }
 
@@ -244,20 +246,20 @@ ol {
   margin: 0 auto;
   font-size: 1.5rem;
   background: none;
-  border: 2px solid #fcd256;
-  color: #fcd256;
+  border: 2px solid #67cee3;
+  color: #67cee3;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s, color 0.2s;
-  box-shadow: 0 0 8px rgba(255, 187, 0, 0.4);
+  box-shadow: 0 0 8px #67cee3cc;
 }
 
 #game-over button:hover {
-  background: #fcd256;
+  background: #67cee3;
   color: #3f3b00;
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 187, 0, 0.8);
+  box-shadow: 0 0 20px #67cee3cc;
 }
 
 #log {
@@ -324,11 +326,21 @@ ol {
 #log {
   margin: 0;
   background: #0a0a0a80;
+  background: #1236ba75;
   width: 100%;
   min-height: 100%;
   color: #fff;
 }
+#log h2 {
+  color: #bdd6fb;
+}
 
+@media screen and (max-width: 1024px) {
+  #game-wrapper {
+    display: grid;
+    grid-template-columns: auto 0.4fr;
+  }
+}
 @media screen and (max-width: 991px) {
   #game-wrapper {
     grid-template-columns: auto 0.8fr;
@@ -344,7 +356,7 @@ ol {
   }
   #log {
     min-height: 420px;
-    max-width: 579px;
+    max-width: 515px;
     margin: 0 auto;
   }
   #game-container {
@@ -379,6 +391,7 @@ ol {
   }
   body {
     background-size: 100% 100%, 80% 20%, 100% 100%;
+    background-attachment: fixed;
   }
 }
 
@@ -395,13 +408,13 @@ ol {
 
 @keyframes pulse-text {
   0% {
-    color: #e1dec7;
+    color: #0031e0dc;
   }
   50% {
-    color: #9f9d83;
+    color: #001972;
   }
   100% {
-    color: #e1dec7;
+    color: #0031e0dc;
   }
 }
 
@@ -419,15 +432,15 @@ ol {
 
 @keyframes pulse {
   0% {
-    border-color: #f6e35a;
-    box-shadow: 0 0 0 0 rgba(246, 227, 90, 0.4);
+    border-color: #a1c7ff;
+    box-shadow: 0 0 0 0 #5adcf666;
   }
   50% {
-    border-color: #f8c031;
+    border-color: #86b3ca;
     box-shadow: 0 0 0 0.5rem rgba(248, 165, 49, 0);
   }
   100% {
-    border-color: #f6e35a;
+    border-color: #a1c7ff;
     box-shadow: 0 0 0 0 rgba(246, 227, 90, 0);
   }
 }
